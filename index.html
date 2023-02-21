@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5a0b75ca10.js" crossorigin="anonymous"></script>
+    <title>TReact</title>
+</head>
+<body>
+    <nav class="row">
+       <div class="nav__container">
+        <figure class="nav__logo--container">
+            <img src="./assets/logo.svg" alt="" class="nav__logo">
+            <h1>Treact</h1>
+        </figure>
+        <ul class="nav__links">
+            <li><a href="" class="nav__link">About</a></li>
+            <li><a href="" class="nav__link">Blog</a></li>
+            <li><a href="" class="nav__link">Pricing</a></li>
+            <li><a href="" class="nav__link">Contact Us</a></li>
+            <li><a href="" class="nav__link">Login</a></li>
+            <li><a href="" class="nav__link btn">Sign Up</a></li>
+        </ul>
+        <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+        </button> 
+       </div>
+        <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+                <li class="menu__list"><a href="#" class="menu__link" onclick="closeMenu()">About</a></li>
+                <li class="menu__list"><a href="#books" class="menu__link" onclick="closeMenu()">Blog</a></li>
+                <li class="menu__list"><a href="" class="menu__link no-cursor" onclick="closeMenu()">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home">
+        <div class="home__container row">
+            <div class="home__container--one">
+                <div class="home__desc">
+                    <h1 class="home__desc--title section__title">Beautiful React <br> Templates <span class="text--purple">for you.</span></h1>
+                    <p class="home__desc--para">Our templates are easy to setup, understand and customize. Fully modular components with a variety of pages and components.</p>
+                    <div class="home__form">
+                        <input type="text" placeholder="Your E-mail Address" class="home__form--input">
+                        <button class="home__form--btn">Get Started</button>
+                    </div>
+                </div>
+                <div class="home__brands">
+                    <h2 class="home__brands--title">OUR TRUSTED CUSTOMERS</h2>
+                    <figure class="home__brands--img">
+                        <img class="home__img" src="data:image/png;base64,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" alt="">
+                        <img class="home__img home__img--twc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/The_Weather_Channel_logo_2005-present.svg/2048px-The_Weather_Channel_logo_2005-present.svg.png" alt="">
+                        <img class="home__img" src="data:image/png;base64,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" alt="">
+                        <img class="home__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROofMQmNi_nuCsTpcaaNHmybv8toY9iuJPSknB7FT8PNhlIOJj-2rg6X0nCYWSUil0Mus&usqp=CAU" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="home__container--two">
+                <img src="https://treact.owaiskhan.me/static/media/design-illustration-2.6da6a00b20c07c4a9b65d1870679e1b8.svg" alt="">
+            </div> 
+        </div>
+    </section>
+    <section id="features">
+        <div class="features__container container">
+            <h1 class="features__title text--purple">FEATURES</h1>
+            <div class="features__desc">
+                <h1 class="section__title features__desc--title">We have Amazing <span class="text--purple"> Service.</span></h1>
+                <p class="features__desc--sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="features__container--two">
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        Secure
+                    </h3>
+                    <p class="features__aspects--para">
+                        We strictly only deal with vendors that provide top notch security
+                    </p>
+                </div>
+            </div>
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        24/7 Support
+                    </h3>
+                    <p class="features__aspects--para">
+                        Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+            </div>
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-bars"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        Customizable
+                    </h3>
+                    <p class="features__aspects--para">
+                        Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+            </div>
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-arrow-up"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        Reliable
+                    </h3>
+                    <p class="features__aspects--para">
+                        Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+            </div>
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        Fast
+                    </h3>
+                    <p class="features__aspects--para">
+                        Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+            </div>
+            <div class="features__aspects">
+                <div class="features__aspects--img">
+                    <i class="fa-sharp fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h3 class="features__aspects--title">
+                        Easy
+                    </h3>
+                    <p class="features__aspects--para">
+                        Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="quality" class="quality__container row container">
+        <div class="quality__desc">
+            <h3 class="text--purple quality__desc--title">QUALITY WORK</h3>
+            <h1 class="quality__desc--sub-title">Designed & Developed by <span class="text--purple">Professionals.</span></h1>
+            <p class="quality__desc--para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button class="quality__desc--btn">Learn More</button>
+        </div>
+        <div class="quality__img">
+            <img class="quality__img--img" src="https://treact.owaiskhan.me/static/media/hero-screenshot-1.40a097b525c2f8c9808e.png" alt="">
+        </div>
+    </section>
+    <section id="started">
+        <div class="started__container row container">
+            <div class="started__img">
+                <img src="https://treact.owaiskhan.me/static/media/hero-screenshot-2.241aac1fbc66db29d873.png" alt="">
+            </div>
+            <div class="started__desc--container">
+                <div class="started__desc">
+                    <h3 class="started__desc--title text--purple">STEPS</h3>
+                    <h1 class="started__desc--sub-title">Easy to <span class="text--purple">Get Started.</span></h1>
+                </div>
+                <div class="started__steps">
+                    <h1 class="started__steps--num started__steps--num-one">01</h1>
+                    <div class="started__steps--desc">
+                        <h3 class="started__steps--desc-title">Register</h3>
+                        <p class="started__steps--desc-para">Create an account with us using Google or Facebook.</p>
+                    </div>
+                </div>
+                <div class="started__steps">
+                    <h1 class="started__steps--num">02</h1>
+                    <div class="started__steps--desc">
+                        <h3 class="started__steps--desc-title">Download</h3>
+                        <p class="started__steps--desc-para">Browse and Download the template that you like from the marketplace.</p>
+                    </div>
+                </div>
+                <div class="started__steps">
+                    <h1 class="started__steps--num">03</h1>
+                    <div class="started__steps--desc">
+                        <h3 class="started__steps--desc-title">Run</h3>
+                        <p class="started__steps--desc-para">Follow the instructions to setup and customize the template to your needs.</p>
+                    </div>
+                </div>
+            </div>    
+        </div>    
+    </section>
+    <section id="values" class="values__container row container">
+        <div class="values__desc values__desc--container">
+            <h3 class="text--purple values__desc--title"> VALUES </h3>
+            <h1 class="values__desc--sub-title"> We Always Abide by Our <span class="text--purple">Principles.</span> </h1>
+            <p class="values__desc--para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="values__values--container">
+                <div class="values__values">
+                    <div class="values__values--container-title">
+                        <i class="fa-solid fa-dollar-sign values__affordable"></i>
+                        <h3 class="values__values--title">Affordable</h3>
+                    </div>
+                    <p class="values__values--para">We promise to offer you the best rate we can - at par with the industry standard.</p>                   
+                </div>
+                <div class="values__values">
+                    <div class="values__values--container-title">
+                        <i class="fa-solid fa-briefcase values__work"></i>
+                        <h3 class="values__values--title">Professionalism</h3>
+                    </div>
+                    <p class="values__values--para">We assure you that our templates are designed and created by professional designers.</p>
+                </div>
+            </div>
+            <button class="values__btn">Learn More</button>
+        </div>
+       <figure class="values__img">
+            <img src="https://treact.owaiskhan.me/static/media/prototype-illustration.21bc4b3f612a2f257c3d361067582485.svg" alt="">
+        </figure> 
+    </section>
+    <section id="pricing">
+        <div class="pricing__desc row container">
+            <h3 class="text--purple">PRICING</h3>
+            <h1 class="pricing__title">Reasonable & Flexible <span class="text--purple">Plans.</span></h1>
+            <p class="pricing__para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="pricing__container">
+            <div class="pricing__border--personal">
+                <div class="pricing__plan--desc">
+                    <h1 class="pricing__plan--title">PERSONAL</h1>
+                    <h1 class="pricing__plan--amount">$17.99</h1>
+                    <h3 class="pricing__plan--monthly">MONTHLY</h3>
+                </div>
+                <div class="pricing__plan">
+                    <h1 class="pricing__plan--desc-title">For Individuals</h1>
+                    <h3 class="pricing__plan--desc-sub-title">30 Templates</h3>
+                    <h3 class="pricing__plan--desc-sub-title">7 Landing Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title">12 Internal Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title">Basic Assistance</h3>
+                </div>
+                <div class="pricing__btn">
+                    <button class="pricing__btn--personal">BUY NOW</button>
+                </div>
+            </div>
+            <div class="pricing__border--business">
+                <div class="pricing__plan--desc">
+                    <h1 class="pricing__plan--title text--business">BUSINESS</h1>
+                    <h1 class="pricing__plan--amount text--business">$37.99</h1>
+                    <h3 class="pricing__plan--monthly text--business">MONTHLY</h3>
+                </div>
+                <div class="pricing__plan">
+                    <h1 class="pricing__plan--desc-title text--business">For Small Business</h1>
+                    <h3 class="pricing__plan--desc-sub-title text--business">60 Templates</h3>
+                    <h3 class="pricing__plan--desc-sub-title text--business">15 Landing Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title text--business">22 Internal Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title text--business">Priority Assistance</h3>
+                </div>
+                <div class="pricing__btn">
+                    <button class="pricing__btn--business">BUY NOW</button>
+                </div>
+            </div>
+            <div class="pricing__border--enterprise">
+                <div class="pricing__plan--desc">
+                    <h1 class="pricing__plan--title">ENTERPRISE</h1>
+                    <h1 class="pricing__plan--amount">$57.99</h1>
+                    <h3 class="pricing__plan--monthly">MONTHLY</h3>
+                </div>
+                <div class="pricing__plan">
+                    <h1 class="pricing__plan--desc-title">For Large Companies</h1>
+                    <h3 class="pricing__plan--desc-sub-title">90 Templates</h3>
+                    <h3 class="pricing__plan--desc-sub-title">27 Landing Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title">37 Internal Pages</h3>
+                    <h3 class="pricing__plan--desc-sub-title">Personal Assistance</h3>
+                </div>
+                <div class="pricing__btn">
+                    <button class="pricing__btn--enterprise">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials__container row container">
+        <figure class="testimonials__img">
+            <img src="https://treact.owaiskhan.me/static/media/love-illustration.c759090fa833369ad6ffb6eb19cacb3e.svg" alt="">
+        </figure>
+        <div class="testimonials__desc">
+            <div class="testimonials__desc--container">
+                <h3 class="text--purple testimonials__desc--title">TESTIMONIALS</h3>
+                <h1 class="testimonials__desc--sub-title">Our Clients <span class="text--purple">Love Us.</span></h1>
+                <p class="testimonials__desc--para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
+            </div>
+            <div class="book__ratings testimonials__stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonials__text">
+                <h3 class="testimonials__text--title">Amazing User Experience</h3>
+                <p class="testimonials__text--para">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+            <div class="testimonials__user--container">
+                <img class="testimonials__picture" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80" alt="">
+                <div class="testimonials__user--text">
+                    <p class="testimonials__name">Charlotte Hale</p>
+                    <p class="testimonials__position">Director, Delos Inc.</p>
+                </div>
+                <div class="testimonials__arrows">
+                    <i class="fa-solid fa-arrow-left testimonials__arrow"></i>
+                    <i class="fa-solid fa-arrow-right testimonials__arrow"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faqs" class="faqs__container row container">
+        <div class="faqs__desc">
+            <h3 class="text--purple">FAQS</h3>
+            <h1 class="faqs__desc--title">You have <span class="text--purple">Questions?</span></h1>
+            <p class="faqs__desc--para">And we have got answers to all of them. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="faqs__answers--container">
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">Are all the templates easily customizable?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">How long do you usually support an stnadalone template for?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">What kind of payment methods do you accept?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">Is there a subscription service to get the latest templates?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">Are the templates compatible with React?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+            <div class="faqs__answers">
+                <h3 class="faqs__answers--title">Do you really support Internet Explorer 11?</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>    
+        </div>
+    </section>
+    <section id="devs" class="row container">
+        <div class="devs__container">
+            <h1 class="devs__title">Developers all over the world are happily using Treact.</h1>
+            <button class="devs__btn--one">Get Started</button>
+            <button class="devs__btn--two">Contact Us</button>
+        </div>
+    </section>
+    <footer class=" container footer__container">
+        <div class="footer__list--container">
+            <div class="footer__list">
+                <h1 class="footer__list--title">MAIN</h1>
+                <ul class="footer__list--links">
+                    <li><a href="" class="footer__list--link link__hover--effect">Blog</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">FAQs</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Support</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer__list">
+                <h1 class="footer__list--title">PRODUCT</h1>
+                <ul class="footer__list--links">
+                    <li><a href="" class="footer__list--link link__hover--effect">Log In</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Personal</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Business</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Team</a></li>
+                </ul>
+            </div>
+            <div class="footer__list">
+                <h1 class="footer__list--title">PRESS</h1>
+                <ul class="footer__list--links">
+                    <li><a href="" class="footer__list--link link__hover--effect">Logos</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Events</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Stories</a></li>
+                    <li><a href="" class="footer__list--link link__hover--effect">Office</a></li>
+                </ul>
+            </div>
+            <div class="footer__list">
+                <h1 class="footer__list--title">TEAM</h1>
+                <ul class="footer__list--links">
+                    <li><a class="footer__list--link link__hover--effect" href="">Career</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Founders</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Culture</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Onboarding</a></li>
+                </ul>
+            </div>
+            <div class="footer__list">
+                <h1 class="footer__list--title">LEGAL</h1>
+                <ul class="footer__list--links">
+                    <li><a class="footer__list--link link__hover--effect" href="">GDPR</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Privacy Policy</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Terms of Service</a></li>
+                    <li><a class="footer__list--link link__hover--effect" href="">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__desc--container">
+            <div class="footer__logo--container">
+                <img src="https://treact.owaiskhan.me/static/media/logo-light.d9a5d1b5be5ea077b26864fdfc2e96a4.svg" alt="">
+                <h1 class="footer__logo--title">Treact Inc.</h1>
+            </div>
+            <p class="footer__title">© 2018 Treact Inc. All Rights Reserved.</p>
+            <div class="footer__icons">
+                <i class="fa-brands fa-facebook footer__icon"></i>
+                <i class="fa-brands fa-twitter footer__icon"></i>
+                <i class="fa-brands fa-youtube footer__icon"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
